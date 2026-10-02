@@ -1,0 +1,1987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shade Family Salon | Beauty & Hair Studio</title>
+
+<meta name="description" content="Shade Family Salon - Professional hair, beauty and styling services. Book your appointment today.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f7f4f0;
+  --card:#ffffff;
+  --text:#211e1c;
+  --muted:#756f69;
+  --gold:#b78a5c;
+  --gold2:#8e643d;
+  --dark:#171412;
+  --border:#e5ded6;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"DM Sans",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+body.dark{
+  --bg:#151311;
+  --card:#211e1b;
+  --text:#f5f1ec;
+  --muted:#aaa29b;
+  --border:#3a342f;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+
+/* LOADER */
+
+#loader{
+  position:fixed;
+  inset:0;
+  background:#171412;
+  color:white;
+  z-index:9999;
+  display:grid;
+  place-items:center;
+  transition:.6s;
+}
+
+#loader.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.loader-logo{
+  font-family:"Playfair Display",serif;
+  font-size:40px;
+  letter-spacing:7px;
+}
+
+.loader-line{
+  position:absolute;
+  width:100px;
+  height:2px;
+  background:var(--gold);
+  animation:load 1.2s infinite;
+}
+
+@keyframes load{
+  0%{transform:scaleX(0)}
+  50%{transform:scaleX(1)}
+  100%{transform:scaleX(0)}
+}
+
+
+/* HEADER */
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  transition:.3s;
+}
+
+header.scrolled{
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(15px);
+  box-shadow:0 5px 30px rgba(0,0,0,.07);
+}
+
+body.dark header.scrolled{
+  background:rgba(25,22,20,.94);
+}
+
+.navbar{
+  height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  display:flex;
+  flex-direction:column;
+  line-height:1;
+}
+
+.logo-main{
+  font-family:"Playfair Display",serif;
+  font-size:24px;
+  letter-spacing:3px;
+}
+
+.logo-sub{
+  font-size:8px;
+  letter-spacing:3px;
+  margin-top:6px;
+}
+
+nav{
+  display:flex;
+  gap:30px;
+}
+
+nav a{
+  font-size:14px;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:var(--gold);
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.theme{
+  border:0;
+  background:transparent;
+  color:inherit;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.book-btn{
+  background:var(--text);
+  color:var(--bg);
+  padding:12px 20px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:600;
+}
+
+.menu{
+  display:none;
+  border:0;
+  background:transparent;
+  color:inherit;
+  font-size:26px;
+  cursor:pointer;
+}
+
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+
+  background:
+  url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=2000&q=90")
+  center/cover;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(
+    90deg,
+    rgba(15,12,10,.9),
+    rgba(15,12,10,.55),
+    rgba(15,12,10,.12)
+  );
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  color:white;
+  padding-top:70px;
+}
+
+.hero-text{
+  max-width:680px;
+}
+
+.eyebrow{
+  color:#d5aa80;
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:700;
+}
+
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(50px,7vw,88px);
+  line-height:1.02;
+  margin:20px 0;
+}
+
+.hero h1 span{
+  display:block;
+  color:#d6ab83;
+  font-style:italic;
+}
+
+.hero p{
+  max-width:530px;
+  color:#ddd;
+  font-size:17px;
+}
+
+.buttons{
+  display:flex;
+  gap:14px;
+  margin-top:35px;
+}
+
+.btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  padding:14px 25px;
+  border-radius:30px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+  border:1px solid transparent;
+}
+
+.primary{
+  background:var(--gold);
+  color:white;
+}
+
+.primary:hover{
+  background:var(--gold2);
+  transform:translateY(-3px);
+}
+
+.outline{
+  border-color:rgba(255,255,255,.6);
+  color:white;
+}
+
+.outline:hover{
+  background:white;
+  color:#222;
+}
+
+.stats{
+  display:flex;
+  gap:45px;
+  margin-top:55px;
+}
+
+.stats div{
+  display:flex;
+  flex-direction:column;
+}
+
+.stats strong{
+  font-size:23px;
+}
+
+.stats span{
+  font-size:11px;
+  color:#bbb;
+}
+
+
+/* GENERAL */
+
+section{
+  padding:110px 0;
+}
+
+.label{
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:700;
+}
+
+.heading{
+  text-align:center;
+  max-width:680px;
+  margin:0 auto 55px;
+}
+
+.heading h2,
+.about-text h2,
+.booking-info h2,
+.contact h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(38px,5vw,58px);
+  line-height:1.1;
+  margin:15px 0;
+}
+
+.heading h2 em,
+.about-text h2 em,
+.booking-info h2 em,
+.contact h2 em{
+  color:var(--gold);
+}
+
+.heading p{
+  color:var(--muted);
+}
+
+
+/* ABOUT */
+
+.about{
+  background:var(--card);
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:85px;
+  align-items:center;
+}
+
+.about-photo{
+  position:relative;
+}
+
+.about-photo img{
+  height:600px;
+  object-fit:cover;
+}
+
+.badge{
+  position:absolute;
+  right:-25px;
+  bottom:30px;
+  width:140px;
+  height:140px;
+  background:var(--gold);
+  color:white;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  text-align:center;
+}
+
+.badge strong{
+  display:block;
+  font-family:"Playfair Display",serif;
+  font-size:34px;
+}
+
+.about-text p{
+  color:var(--muted);
+  margin:20px 0;
+}
+
+.points{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  margin-top:30px;
+}
+
+.points div{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.points span{
+  color:var(--gold);
+  font-size:20px;
+}
+
+
+/* SERVICES */
+
+.services{
+  background:var(--bg);
+}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.service{
+  background:var(--card);
+  padding:35px;
+  border:1px solid var(--border);
+  transition:.3s;
+}
+
+.service:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 50px rgba(0,0,0,.08);
+  border-color:var(--gold);
+}
+
+.icon{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:rgba(183,138,92,.12);
+  color:var(--gold);
+  display:grid;
+  place-items:center;
+  font-size:23px;
+  margin-bottom:22px;
+}
+
+.service h3{
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+}
+
+.service p{
+  color:var(--muted);
+  margin:10px 0 20px;
+}
+
+.price{
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+.service a{
+  color:var(--gold);
+  font-size:13px;
+  font-weight:700;
+}
+
+
+/* OFFER */
+
+.offer{
+  background:var(--dark);
+  color:white;
+  padding:65px 0;
+}
+
+.offer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+}
+
+.offer h2{
+  font-family:"Playfair Display",serif;
+  font-size:42px;
+  margin:8px 0;
+}
+
+.offer p{
+  color:#aaa;
+}
+
+
+/* GALLERY */
+
+.gallery{
+  background:var(--card);
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  grid-auto-rows:250px;
+  gap:15px;
+}
+
+.gallery-item{
+  overflow:hidden;
+}
+
+.gallery-item.big{
+  grid-row:span 2;
+}
+
+.gallery-item img{
+  height:100%;
+  object-fit:cover;
+  transition:.6s;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.07);
+}
+
+
+/* REVIEWS */
+
+.reviews-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.review{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:35px;
+}
+
+.stars{
+  color:#c89538;
+  letter-spacing:4px;
+}
+
+.review p{
+  color:var(--muted);
+  margin:20px 0;
+}
+
+.author{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.avatar{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:var(--gold);
+  color:white;
+  display:grid;
+  place-items:center;
+}
+
+.author div:last-child{
+  display:flex;
+  flex-direction:column;
+}
+
+.author small{
+  color:var(--muted);
+}
+
+
+/* BOOKING */
+
+.booking{
+  background:var(--card);
+}
+
+.booking-grid{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:80px;
+}
+
+.booking-info p{
+  color:var(--muted);
+  max-width:480px;
+}
+
+.contact-list{
+  margin-top:35px;
+  display:grid;
+  gap:20px;
+}
+
+.contact-list div{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+.contact-icon{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background:rgba(183,138,92,.12);
+  display:grid;
+  place-items:center;
+}
+
+.contact-list small{
+  color:var(--muted);
+  display:block;
+  font-size:9px;
+  letter-spacing:2px;
+}
+
+.form{
+  background:var(--bg);
+  border:1px solid var(--border);
+  padding:40px;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.field{
+  margin-bottom:18px;
+}
+
+.field label{
+  display:block;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  padding:13px;
+  background:var(--card);
+  color:var(--text);
+  border:1px solid var(--border);
+  outline:none;
+  border-radius:4px;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color:var(--gold);
+}
+
+.full{
+  width:100%;
+}
+
+.note{
+  text-align:center;
+  font-size:11px;
+  color:var(--muted);
+  margin-top:10px;
+}
+
+
+/* CONTACT */
+
+.contact{
+  background:var(--gold);
+  color:white;
+}
+
+.contact-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+}
+
+.contact .label{
+  color:#f5d9bd;
+}
+
+.whatsapp{
+  background:white;
+  color:#222;
+  padding:15px 25px;
+  border-radius:30px;
+  font-weight:700;
+}
+
+
+/* FOOTER */
+
+footer{
+  background:var(--dark);
+  color:white;
+  padding-top:70px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:50px;
+  padding-bottom:60px;
+}
+
+footer p,
+footer a{
+  color:#aaa;
+  font-size:13px;
+}
+
+footer h4{
+  margin-bottom:20px;
+}
+
+.footer-col{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.footer-bottom{
+  border-top:1px solid #35312d;
+  padding:20px 0;
+}
+
+.footer-bottom .container{
+  display:flex;
+  justify-content:space-between;
+  color:#777;
+  font-size:11px;
+}
+
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  right:25px;
+  bottom:25px;
+  background:#171412;
+  color:white;
+  padding:16px 20px;
+  border-radius:8px;
+  z-index:9999;
+  transform:translateY(120px);
+  opacity:0;
+  transition:.4s;
+}
+
+.toast.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+
+/* ANIMATION */
+
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:.8s;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  nav{
+    position:fixed;
+    top:88px;
+    left:0;
+    width:100%;
+    background:var(--card);
+    padding:25px;
+    display:none;
+    flex-direction:column;
+    gap:18px;
+    box-shadow:0 15px 30px rgba(0,0,0,.1);
+  }
+
+  nav.open{
+    display:flex;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .book-btn{
+    display:none;
+  }
+
+  .about-grid,
+  .booking-grid{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+
+  .service-grid,
+  .reviews-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+
+@media(max-width:600px){
+
+  section{
+    padding:75px 0;
+  }
+
+  .hero{
+    min-height:750px;
+  }
+
+  .hero h1{
+    font-size:48px;
+  }
+
+  .buttons{
+    flex-direction:column;
+  }
+
+  .stats{
+    gap:18px;
+  }
+
+  .stats strong{
+    font-size:18px;
+  }
+
+  .about-photo img{
+    height:450px;
+  }
+
+  .badge{
+    right:15px;
+    width:110px;
+    height:110px;
+  }
+
+  .service-grid,
+  .reviews-grid,
+  .row,
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr;
+    grid-auto-rows:300px;
+  }
+
+  .gallery-item.big{
+    grid-row:span 1;
+  }
+
+  .offer-inner,
+  .contact-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .offer h2{
+    font-size:34px;
+  }
+
+  .form{
+    padding:25px;
+  }
+
+  .footer-bottom .container{
+    flex-direction:column;
+    gap:8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADING -->
+<div id="loader">
+  <div class="loader-logo">SHADE</div>
+  <div class="loader-line"></div>
+</div>
+
+
+<!-- HEADER -->
+<header id="header">
+
+<div class="container navbar">
+
+<a href="#home" class="logo">
+  <span class="logo-main">SHADE</span>
+  <span class="logo-sub">FAMILY SALON</span>
+</a>
+
+<nav id="nav">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="nav-right">
+
+<button class="theme" id="theme">☾</button>
+
+<a href="#booking" class="book-btn">
+  Book Now
+</a>
+
+<button class="menu" id="menu">☰</button>
+
+</div>
+
+</div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container hero-content">
+
+<div class="hero-text reveal">
+
+<span class="eyebrow">
+WELCOME TO SHADE FAMILY SALON
+</span>
+
+<h1>
+Beauty that feels
+<span>uniquely you.</span>
+</h1>
+
+<p>
+Professional hair, beauty and styling services
+for the whole family. Relax, refresh and leave
+feeling your absolute best.
+</p>
+
+<div class="buttons">
+
+<a href="#booking" class="btn primary">
+Book Appointment
+</a>
+
+<a href="#services" class="btn outline">
+Explore Services
+</a>
+
+</div>
+
+<div class="stats">
+
+<div>
+<strong>10+</strong>
+<span>Years Experience</span>
+</div>
+
+<div>
+<strong>5K+</strong>
+<span>Happy Clients</span>
+</div>
+
+<div>
+<strong>4.9★</strong>
+<span>Client Rating</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<div class="container about-grid">
+
+<div class="about-photo reveal">
+
+<img
+src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=85"
+alt="Shade Family Salon">
+
+<div class="badge">
+<div>
+<strong>10+</strong>
+<span>Years of<br>Excellence</span>
+</div>
+</div>
+
+</div>
+
+
+<div class="about-text reveal">
+
+<span class="label">ABOUT US</span>
+
+<h2>
+A salon for the
+<em>whole family.</em>
+</h2>
+
+<p>
+At Shade Family Salon, we believe everyone deserves
+to feel confident, comfortable and beautiful.
+</p>
+
+<p>
+Our experienced team provides professional hair and
+beauty services in a welcoming and relaxing environment.
+</p>
+
+<div class="points">
+
+<div>
+<span>✓</span>
+<p>Experienced stylists</p>
+</div>
+
+<div>
+<span>✓</span>
+<p>Premium products</p>
+</div>
+
+<div>
+<span>✓</span>
+<p>Family friendly service</p>
+</div>
+
+<div>
+<span>✓</span>
+<p>Personalised care</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+<div class="container">
+
+<div class="heading reveal">
+
+<span class="label">OUR SERVICES</span>
+
+<h2>
+Everything you need to
+<em>look & feel amazing.</em>
+</h2>
+
+<p>
+Professional services tailored to your style.
+</p>
+
+</div>
+
+
+<div class="service-grid">
+
+
+<div class="service reveal">
+
+<div class="icon">✂</div>
+
+<h3>Hair Styling</h3>
+
+<p>
+Professional cuts, styling and treatments
+for your perfect look.
+</p>
+
+<div class="price">
+From Rs. 2,500
+</div>
+
+<a href="#booking">
+Book Service →
+</a>
+
+</div>
+
+
+<div class="service reveal">
+
+<div class="icon">✦</div>
+
+<h3>Hair Colour</h3>
+
+<p>
+Beautiful colour transformations using
+quality professional products.
+</p>
+
+<div class="price">
+From Rs. 5,000
+</div>
+
+<a href="#booking">
+Book Service →
+</a>
+
+</div>
+
+
+<div class="service reveal">
+
+<div class="icon">♡</div>
+
+<h3>Facial & Skin</h3>
+
+<p>
+Relaxing facial treatments for healthy,
+fresh and glowing skin.
+</p>
+
+<div class="price">
+From Rs. 3,000
+</div>
+
+<a href="#booking">
+Book Service →
+</a>
+
+</div>
+
+
+<div class="service reveal">
+
+<div class="icon">◇</div>
+
+<h3>Bridal Beauty</h3>
+
+<p>
+Complete bridal beauty and styling for
+your most special day.
+</p>
+
+<div class="price">
+From Rs. 15,000
+</div>
+
+<a href="#booking">
+Book Service →
+</a>
+
+</div>
+
+
+<div class="service reveal">
+
+<div class="icon">✧</div>
+
+<h3>Nail Care</h3>
+
+<p>
+Manicure, pedicure and beautiful nail
+care treatments.
+</p>
+
+<div class="price">
+From Rs. 2,000
+</div>
+
+<a href="#booking">
+Book Service →
+</a>
+
+</div>
+
+
+<div class="service reveal">
+
+<div class="icon">◈</div>
+
+<h3>Makeup</h3>
+
+<p>
+Professional makeup for parties,
+events and special occasions.
+</p>
+
+<div class="price">
+From Rs. 4,500
+</div>
+
+<a href="#booking">
+Book Service →
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- OFFER -->
+
+<section class="offer">
+
+<div class="container offer-inner">
+
+<div>
+
+<span class="label">SPECIAL OFFER</span>
+
+<h2>
+20% OFF your first visit.
+</h2>
+
+<p>
+New clients only. Terms and conditions apply.
+</p>
+
+</div>
+
+<a href="#booking" class="btn primary">
+Claim Offer
+</a>
+
+</div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section class="gallery" id="gallery">
+
+<div class="container">
+
+<div class="heading reveal">
+
+<span class="label">OUR WORK</span>
+
+<h2>
+Beauty in every
+<em>detail.</em>
+</h2>
+
+</div>
+
+
+<div class="gallery-grid">
+
+<div class="gallery-item big reveal">
+<img
+src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1000&q=85"
+alt="Hair styling">
+</div>
+
+<div class="gallery-item reveal">
+<img
+src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=800&q=85"
+alt="Beauty">
+</div>
+
+<div class="gallery-item reveal">
+<img
+src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=85"
+alt="Salon">
+</div>
+
+<div class="gallery-item reveal">
+<img
+src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=85"
+alt="Salon interior">
+</div>
+
+<div class="gallery-item reveal">
+<img
+src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=800&q=85"
+alt="Nail care">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- REVIEWS -->
+
+<section class="reviews" id="reviews">
+
+<div class="container">
+
+<div class="heading reveal">
+
+<span class="label">CLIENT REVIEWS</span>
+
+<h2>
+What our clients
+<em>say.</em>
+</h2>
+
+</div>
+
+
+<div class="reviews-grid">
+
+
+<div class="review reveal">
+
+<div class="stars">★★★★★</div>
+
+<p>
+“Absolutely loved my experience. The staff
+were friendly and my hair turned out amazing.”
+</p>
+
+<div class="author">
+
+<div class="avatar">A</div>
+
+<div>
+<strong>Amaya</strong>
+<small>Happy Client</small>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="review reveal">
+
+<div class="stars">★★★★★</div>
+
+<p>
+“Beautiful salon, professional service and
+such a relaxing atmosphere.”
+</p>
+
+<div class="author">
+
+<div class="avatar">S</div>
+
+<div>
+<strong>Sarah</strong>
+<small>Happy Client</small>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="review reveal">
+
+<div class="stars">★★★★★</div>
+
+<p>
+“The team understood exactly what I wanted.
+The result was better than expected.”
+</p>
+
+<div class="author">
+
+<div class="avatar">N</div>
+
+<div>
+<strong>Nethmi</strong>
+<small>Happy Client</small>
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BOOKING -->
+
+<section class="booking" id="booking">
+
+<div class="container booking-grid">
+
+
+<div class="booking-info reveal">
+
+<span class="label">
+BOOK YOUR VISIT
+</span>
+
+<h2>
+Ready for your
+<em>new look?</em>
+</h2>
+
+<p>
+Send us your appointment request and
+we will contact you to confirm the booking.
+</p>
+
+
+<div class="contact-list">
+
+<div>
+
+<div class="contact-icon">📞</div>
+
+<div>
+<small>CALL US</small>
+<strong>+94 77 123 4567</strong>
+</div>
+
+</div>
+
+
+<div>
+
+<div class="contact-icon">📍</div>
+
+<div>
+<small>LOCATION</small>
+<strong>Colombo, Sri Lanka</strong>
+</div>
+
+</div>
+
+
+<div>
+
+<div class="contact-icon">🕐</div>
+
+<div>
+<small>OPENING HOURS</small>
+<strong>9:00 AM – 7:00 PM</strong>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<form class="form reveal" id="bookingForm">
+
+<div class="row">
+
+<div class="field">
+
+<label>Your Name</label>
+
+<input
+type="text"
+id="name"
+placeholder="Enter your name"
+required>
+
+</div>
+
+
+<div class="field">
+
+<label>Phone Number</label>
+
+<input
+type="tel"
+id="phone"
+placeholder="+94..."
+required>
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="field">
+
+<label>Service</label>
+
+<select id="service" required>
+
+<option value="">
+Choose a service
+</option>
+
+<option>Hair Styling</option>
+<option>Hair Colour</option>
+<option>Facial & Skin</option>
+<option>Bridal Beauty</option>
+<option>Nail Care</option>
+<option>Makeup</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>Preferred Date</label>
+
+<input
+type="date"
+id="date"
+required>
+
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>Message</label>
+
+<textarea
+id="message"
+rows="4"
+placeholder="Anything you'd like us to know?"></textarea>
+
+</div>
+
+
+<button class="btn primary full" type="submit">
+
+Request Appointment
+
+</button>
+
+<p class="note">
+Your request will be sent through WhatsApp.
+</p>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="container contact-inner">
+
+<div>
+
+<span class="label">GET IN TOUCH</span>
+
+<h2>
+Let's create something
+<em>beautiful.</em>
+</h2>
+
+</div>
+
+<a
+href="https://wa.me/94771234567"
+target="_blank"
+class="whatsapp">
+
+💬 WhatsApp Us
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer-grid">
+
+
+<div>
+
+<a href="#home" class="logo">
+
+<span class="logo-main">SHADE</span>
+
+<span class="logo-sub">
+FAMILY SALON
+</span>
+
+</a>
+
+<p style="margin-top:20px;">
+Professional beauty and styling services
+for the whole family.
+</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Quick Links</h4>
+
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#gallery">Gallery</a>
+<a href="#booking">Booking</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Contact</h4>
+
+<p>Colombo, Sri Lanka</p>
+<p>+94 77 123 4567</p>
+<p>hello@shadefamilysalon.com</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Opening Hours</h4>
+
+<p>Monday – Saturday</p>
+<p>9:00 AM – 7:00 PM</p>
+<p>Sunday – Closed</p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<div class="container">
+
+<span>
+© <span id="year"></span> Shade Family Salon
+</span>
+
+<span>
+All Rights Reserved
+</span>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast">
+✓ Appointment request prepared
+</div>
+
+
+<script>
+
+/* LOADER */
+
+window.addEventListener("load",()=>{
+
+setTimeout(()=>{
+
+document
+.getElementById("loader")
+.classList.add("hide");
+
+},700);
+
+});
+
+
+/* HEADER */
+
+window.addEventListener("scroll",()=>{
+
+const header=document.getElementById("header");
+
+if(window.scrollY>50)
+header.classList.add("scrolled");
+else
+header.classList.remove("scrolled");
+
+});
+
+
+/* MOBILE MENU */
+
+const menu=document.getElementById("menu");
+const nav=document.getElementById("nav");
+
+menu.addEventListener("click",()=>{
+
+nav.classList.toggle("open");
+
+menu.textContent =
+nav.classList.contains("open")
+? "✕"
+: "☰";
+
+});
+
+
+document.querySelectorAll("nav a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+nav.classList.remove("open");
+
+menu.textContent="☰";
+
+});
+
+});
+
+
+/* DARK MODE */
+
+const theme=document.getElementById("theme");
+
+theme.addEventListener("click",()=>{
+
+document.body.classList.toggle("dark");
+
+if(document.body.classList.contains("dark")){
+
+theme.textContent="☀";
+
+localStorage.setItem(
+"shadeTheme",
+"dark"
+);
+
+}else{
+
+theme.textContent="☾";
+
+localStorage.setItem(
+"shadeTheme",
+"light"
+);
+
+}
+
+});
+
+
+if(localStorage.getItem("shadeTheme")==="dark"){
+
+document.body.classList.add("dark");
+
+theme.textContent="☀";
+
+}
+
+
+/* DATE */
+
+const date=document.getElementById("date");
+
+const today=new Date();
+
+const year=today.getFullYear();
+
+const month=String(
+today.getMonth()+1
+).padStart(2,"0");
+
+const day=String(
+today.getDate()
+).padStart(2,"0");
+
+date.min=`${year}-${month}-${day}`;
+
+
+/* BOOKING */
+
+const form=document.getElementById("bookingForm");
+
+const toast=document.getElementById("toast");
+
+
+form.addEventListener("submit",(event)=>{
+
+event.preventDefault();
+
+
+const name=
+document.getElementById("name").value;
+
+const phone=
+document.getElementById("phone").value;
+
+const service=
+document.getElementById("service").value;
+
+const dateValue=
+document.getElementById("date").value;
+
+const message=
+document.getElementById("message").value;
+
+
+/*
+CHANGE THIS NUMBER
+TO THE REAL SALON WHATSAPP NUMBER
+*/
+
+const whatsappNumber="94771234567";
+
+
+const text=
+
+`Hello Shade Family Salon!%0A%0A`+
+
+`I would like to request an appointment.%0A%0A`+
+
+`Name: ${encodeURIComponent(name)}%0A`+
+
+`Phone: ${encodeURIComponent(phone)}%0A`+
+
+`Service: ${encodeURIComponent(service)}%0A`+
+
+`Date: ${encodeURIComponent(dateValue)}%0A`+
+
+`Message: ${encodeURIComponent(
+message || "None"
+)}`;
+
+
+const whatsappURL=
+`https://wa.me/${whatsappNumber}?text=${text}`;
+
+
+toast.classList.add("show");
+
+
+setTimeout(()=>{
+
+toast.classList.remove("show");
+
+},3000);
+
+
+setTimeout(()=>{
+
+window.open(
+whatsappURL,
+"_blank"
+);
+
+},700);
+
+
+form.reset();
+
+});
+
+
+/* SCROLL ANIMATION */
+
+const reveal=
+document.querySelectorAll(".reveal");
+
+
+const observer=
+new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("active");
+
+}
+
+});
+
+},
+
+{
+threshold:.12
+}
+
+);
+
+
+reveal.forEach(element=>{
+
+observer.observe(element);
+
+});
+
+
+/* YEAR */
+
+document.getElementById("year").textContent=
+new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
